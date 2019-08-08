@@ -5,8 +5,6 @@
 # Create detail components
 # Create services
 # Add observables
-# Add messages 
-# Add routing 
 # Integrate API requests
 # Publish 
 
