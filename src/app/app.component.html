@@ -1,4 +1,8 @@
 <h1>{{title}}</h1>
-<app-users></app-users>
-<app-user-tasks></app-user-tasks>
+<nav>
+  <li><h2><a routerLink="/dashboard">Dashboard</a></h2></li>
+  <li><h2><a routerLink="/users">Users</a></h2></li>
+  <li><h2><a routerLink="/userTasks">UserTasks</a></h2></li>
+</nav>
+<router-outlet></router-outlet>
 <app-messages></app-messages>
