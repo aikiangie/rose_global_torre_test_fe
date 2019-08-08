@@ -1,0 +1,50 @@
+<div class="card">
+    
+      <div class="header">
+        <h2 class="title">User</h2>
+      </div>
+      <div class="content">
+    
+        <form #f="ngForm">
+
+          <div class="form-group">
+            <label>Name:</label>
+            <input [(ngModel)]="filter.name" name="name" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <button (click)="search()" [disabled]="!f?.valid" class="btn btn-default">
+              Search
+            </button>
+            <a [routerLink]="['../user','new']" class="btn btn-default">
+                New
+            </a>
+  
+          </div>
+          
+        </form>
+    
+      </div>
+    </div>
+    
+    <div class="card" *ngIf="userList.length > 0">
+    
+      <table class="table table-contensed" >
+        <thead>
+        <tr>            
+            <th>Id</th>            
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let item of userList" [class.active]="item === selectedUser">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>
+                
+                <a [routerLink]="['../user', item.id ]">Details</a> |           
+                <a (click)="select(item)">Select</a>
+            </td>
+        </tr>
+      </table>
+    
+    </div>

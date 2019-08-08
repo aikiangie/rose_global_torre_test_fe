@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="header">
+        <h1 class="title">User Task Detail</h1>
+    </div>
+    <div class="content">
+    
+        <p *ngIf="errors">{{ errors }}</p>
+    
+        <form *ngIf="userTask">
+                
+            <div class="form-group">
+                <label>Id:</label>
+                {{userTask.id || 'n/a'}} 
+            </div>
+                
+            <div class="form-group">
+                <label>Name:</label>
+                <input [(ngModel)]="userTask.description" name="description" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label>User:</label>
+                <input [(ngModel)]="userTask.user" name="user" class="form-control">
+            </div>
+        
+            <div class="form-group">
+                <button
+                (click)="save()"
+                class="btn btn-default">Save</button>
+            </div>
+
+        </form>
+    
+    </div>
+</div>

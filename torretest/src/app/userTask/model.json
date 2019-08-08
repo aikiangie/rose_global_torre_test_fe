@@ -1,0 +1,29 @@
+{
+  "title": "Tasks",
+  "entity": "userTask",
+  "api": {
+    "url": "http://langelicajr.pythonanywhere.com/userTask/"
+  },
+  "filter": [
+    "description"
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "label": "Id",
+      "isId": true,
+      "readonly": true,
+      "type": "number"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "label": "Name"
+    },
+    {
+      "name": "user",
+      "type": "User",
+      "label": "User"
+    }
+  ]
+}
