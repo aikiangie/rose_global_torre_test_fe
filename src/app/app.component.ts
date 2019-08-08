@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'torretest';
+  title = 'Rose Global MVP. Technical Test Full-Stack Engineering for Torre.';
 }
