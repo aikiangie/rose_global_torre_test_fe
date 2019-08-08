@@ -1,9 +1,0 @@
-<h2>UserTasks List</h2>
-<ul class="userTasks">
-  <li *ngFor="let userTask of userTasks"
-      [class.selected]="userTask === selectedUserTask"
-      (click)="onSelect(userTask)">
-    <span class="badge">{{userTask.id}}</span> {{userTask.description}} - Status {{userTask.state}} - User {{userTask.user.name}}
-  </li>
-</ul>
-<app-user-task-detail [userTask]="selectedUserTask"></app-user-task-detail>
