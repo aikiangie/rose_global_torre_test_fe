@@ -14,12 +14,21 @@ export class UsersComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  getUsers(): void {
+  /*getUsers(): void {
     this.users = this.userService.getUsers();
   }
-
+*/
   ngOnInit() {
     this.getUsers();
+  }
+
+  getUsers() {
+    this.userService.getUsers().subscribe(
+      data => {
+       // this.data = data;
+        console.log(data);
+      }
+    );
   }
 
   onSelect(user: User): void {
