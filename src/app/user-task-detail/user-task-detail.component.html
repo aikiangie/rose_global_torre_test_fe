@@ -1,0 +1,11 @@
+<div *ngIf="userTask">
+
+  <h2>{{userTask.description | uppercase}} Details</h2>
+  <div><span>id: </span>{{userTask.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="userTask.description" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
