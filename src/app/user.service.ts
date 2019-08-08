@@ -10,7 +10,12 @@ import { tap, catchError, map} from 'rxjs/operators';
 export class UserService {
 
   private apiUrl = 'http://langelicajr.pythonanywhere.com/users/';
-  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
+  headers = new HttpHeaders().set('Content-Type', 'application/json')
+    .set('Accept', 'application/json')
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Methods', 'GET, PUT, POST')
+    .set('Access-Control-Allow-Headers', 'Origin, X-Request ed-With, Content-Type, Accept');
+
   httpOptions = {
     headers: this.headers
   };
@@ -33,15 +38,15 @@ export class UserService {
   }
 
   deleteUser(id: number): Observable<User> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrl}${id}`;
     return this.httpClient.delete<User>(url, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }
 
   updateUser(user: User): Observable<User> {
-    const url = `${this.apiUrl}/${user.id}`;
-    return this.httpClient.put<User>(this.apiUrl, user, this.httpOptions).pipe(
+    const url = `${this.apiUrl}${user.id}`;
+    return this.httpClient.put<User>(url, user, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }

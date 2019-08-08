@@ -11,6 +11,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserTaskDetailComponent } from './user-task-detail/user-task-detail.component';
 import { UserService } from './user.service';
 import { UserTaskService } from './user-task.service';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { UserTaskService } from './user-task.service';
     UserTasksComponent,
     UserDetailComponent,
     UserTaskDetailComponent,
+    UserCreateComponent,
   ],
   imports: [
     BrowserModule,

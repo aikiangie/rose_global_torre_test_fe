@@ -14,4 +14,9 @@ export class UserTaskDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log(this.userTask);
+
+  }
+
 }

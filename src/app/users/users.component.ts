@@ -30,4 +30,8 @@ export class UsersComponent implements OnInit {
     this.selectedUser = user;
   }
 
+  onCreate(): void {
+
+  }
+
 }
