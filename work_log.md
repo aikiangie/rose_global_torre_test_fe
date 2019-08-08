@@ -5,6 +5,7 @@
 1. Finish delete actions
 1. Publish site
 1. Visual enhancements
+1. Readme documentation update
 
 **DONE**
 1. Configure angular base project
