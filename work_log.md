@@ -4,6 +4,8 @@
 1. Finish add new actions
 1. Finish delete actions
 1. Publish site
+1. Unit tests
+1. Move API urls to properties file
 1. Visual enhancements
 1. Readme documentation update
 
