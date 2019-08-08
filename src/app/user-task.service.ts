@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import {UserTask} from './userTask';
-import { USER_TASKS } from './mock-user-tasks';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserTaskService {
 
-  getUserTasks(): UserTask[] {
-    return (USER_TASKS);
+  private apiUrl = 'http://langelicajr.pythonanywhere.com/userTask/';
+
+  getUserTasks(): Observable<UserTask[]> {
+    return this.httpClient.get<UserTask[]>(this.apiUrl);
   }
-  constructor() { }
+
+  constructor(private httpClient: HttpClient) { }
 }
