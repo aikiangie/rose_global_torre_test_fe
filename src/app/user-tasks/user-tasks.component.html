@@ -6,15 +6,4 @@
     <span class="badge">{{userTask.id}}</span> {{userTask.description}} - Status {{userTask.state}} - User {{userTask.user.name}}
   </li>
 </ul>
-
-<div *ngIf="selectedUserTask">
-
-  <h2>{{selectedUserTask.description | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedUserTask.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedUserTask.description" placeholder="name"/>
-    </label>
-  </div>
-
-</div>
+<app-user-task-detail [userTask]="selectedUserTask"></app-user-task-detail>
