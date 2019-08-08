@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { UserTasksComponent } from './user-tasks/user-tasks.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserTaskDetailComponent } from './user-task-detail/user-task-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserTaskDetailComponent } from './user-task-detail/user-task-detail.com
     UsersComponent,
     UserTasksComponent,
     UserDetailComponent,
-    UserTaskDetailComponent
+    UserTaskDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

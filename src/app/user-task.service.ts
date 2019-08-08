@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MessageService } from './message.service';
 import {UserTask} from './userTask';
 import { USER_TASKS } from './mock-user-tasks';
 import { Observable, of } from 'rxjs';
@@ -9,7 +10,8 @@ import { Observable, of } from 'rxjs';
 export class UserTaskService {
 
   getUserTasks(): Observable<UserTask[]> {
+    this.messageService.add('UserTasksService: fetched usersTaskcs');
     return of(USER_TASKS);
   }
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 }
