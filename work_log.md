@@ -1,9 +1,11 @@
-1. Configure angular base project
-2. Create users component
-3. Create userTasks component
-4. Create mock data
-5. Create detail components
-6. Create services
-7. Integrate API requests
-8. Publish 
+# Configure angular base project
+# Create users component
+# Create userTasks component
+# Create mock data
+# Create detail components
+# Create services
+# Add observables
+# Add messages 
+# Integrate API requests
+# Publish 
 

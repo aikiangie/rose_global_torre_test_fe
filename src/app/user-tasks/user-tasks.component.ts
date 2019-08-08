@@ -15,7 +15,8 @@ export class UserTasksComponent implements OnInit {
   constructor(private userTaskService: UserTaskService) { }
 
   getUserTasks(): void {
-    this.userTasks = this.userTaskService.getUserTasks();
+    this.userTaskService.getUserTasks()
+      .subscribe(userTasks => this.userTasks = userTasks);
   }
 
   ngOnInit() {
