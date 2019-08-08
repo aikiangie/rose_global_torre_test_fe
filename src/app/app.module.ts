@@ -12,6 +12,7 @@ import { UserTaskDetailComponent } from './user-task-detail/user-task-detail.com
 import { UserService } from './user.service';
 import { UserTaskService } from './user-task.service';
 import { UserCreateComponent } from './user-create/user-create.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
     UserDetailComponent,
     UserTaskDetailComponent,
     UserCreateComponent,
+    HeroFormComponent,
   ],
   imports: [
     BrowserModule,
