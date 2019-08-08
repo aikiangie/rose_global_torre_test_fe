@@ -9,9 +9,8 @@ import { UsersComponent } from './users/users.component';
 import { UserTasksComponent } from './user-tasks/user-tasks.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserTaskDetailComponent } from './user-task-detail/user-task-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { UserService } from './user.service';
+import { UserTaskService } from './user-task.service';
 
 @NgModule({
   declarations: [
@@ -20,15 +19,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UserTasksComponent,
     UserDetailComponent,
     UserTaskDetailComponent,
-    MessagesComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService, UserTaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
