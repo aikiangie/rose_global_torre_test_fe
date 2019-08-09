@@ -3,23 +3,23 @@ import { UserTaskFilter } from './user-task-filter';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {User} from '../user/user';
 
 @Injectable()
 export class UserTaskService {
-    
-    constructor(private http: HttpClient) {
-    }
+
+    constructor(private http: HttpClient) {}
 
     userTaskList: UserTask[] = [];
-  
+    baseApiUrl = 'http://langelicajr.pythonanywhere.com/userTask/';
+
     findById(id: string): Observable<UserTask> {
-        let url = 'http://langelicajr.pythonanywhere.com/userTask/'; 
-        let params = { "id": id };
-        let headers = new HttpHeaders()
-                            .set('Accept', 'application/json');
-        return this.http.get<UserTask>(url, {params, headers});
+      const url = this.baseApiUrl + id + '/';
+      const params = { };
+      const headers = new HttpHeaders().set('Accept', 'application/json');
+      return this.http.get<UserTask>(url, {params, headers});
     }
-    
+
     load(filter: UserTaskFilter): void {
         this.find(filter).subscribe(
             result => {
@@ -28,26 +28,29 @@ export class UserTaskService {
             err => {
                 console.error('error loading', err);
             }
-        )
+        );
     }
 
     find(filter: UserTaskFilter): Observable<UserTask[]> {
-        let url = 'http://langelicajr.pythonanywhere.com/userTask/';
-        let headers = new HttpHeaders()
-                            .set('Accept', 'application/json');
-
-        let params = {
-            "description": filter.description,
+        const url = this.baseApiUrl;
+        const headers = new HttpHeaders().set('Accept', 'application/json');
+        const params = {
+            'description': filter.description,
         };
-
         return this.http.get<UserTask[]>(url, {params, headers});
     }
 
     save(entity: UserTask): Observable<UserTask> {
-        let url = 'http://langelicajr.pythonanywhere.com/userTask/';
-        let headers = new HttpHeaders()
-            .set('Accept', 'application/json');
+      let url = this.baseApiUrl;
+      const headers = new HttpHeaders()
+        .set('Accept', 'application/json');
+
+      if ( entity.id ) {
+        url = this.baseApiUrl + entity.id + '/';
+        return this.http.put<UserTask>(url, entity, {headers});
+      } else {
         return this.http.post<UserTask>(url, entity, {headers});
+      }
     }
 }
 

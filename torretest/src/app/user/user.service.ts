@@ -7,52 +7,48 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 @Injectable()
 export class UserService {
 
-    constructor(private http: HttpClient) {
-    }
+  constructor(private http: HttpClient) {}
 
-    userList: User[] = [];
+  userList: User[] = [];
+  baseApiUrl: 'http://langelicajr.pythonanywhere.com/users/';
 
-    findById(id: string): Observable<User> {
-        let url = 'http://langelicajr.pythonanywhere.com/users/' + id + '/';
-        let params = { };
-        let headers = new HttpHeaders()
-                            .set('Accept', 'application/json');
-        return this.http.get<User>(url, {params, headers});
-    }
+  findById(id: string): Observable<User> {
+    const url = this.baseApiUrl + id + '/';
+    const params = { };
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.get<User>(url, {params, headers});
+  }
 
-    load(): void {
-        this.find().subscribe(
-            result => {
-                this.userList = result;
-            },
-            err => {
-                console.error('error loading', err);
-            }
-        )
-    }
-
-    find(): Observable<User[]> {
-        let url = 'http://langelicajr.pythonanywhere.com/users/';
-        let headers = new HttpHeaders()
-                            .set('Accept', 'application/json');
-
-        let params = {};
-
-        return this.http.get<User[]>(url, {params, headers});
-    }
-
-    save(entity: User): Observable<User> {
-      let headers = new HttpHeaders()
-        .set('Accept', 'application/json');
-
-      if( entity.id ){
-        let url = 'http://langelicajr.pythonanywhere.com/users/' + entity.id + '/';
-        return this.http.put<User>(url, entity, {headers});
-      }else{
-        let url = 'http://langelicajr.pythonanywhere.com/users/';
-        return this.http.post<User>(url, entity, {headers});
+  load(): void {
+    this.find().subscribe(
+      result => {
+        this.userList = result;
+      },
+      err => {
+        console.error('error loading', err);
       }
+    );
+  }
 
+  find(): Observable<User[]> {
+    const url = this.baseApiUrl;
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    const params = {};
+    return this.http.get<User[]>(url, {params, headers});
+  }
+
+  save(entity: User): Observable<User> {
+    let url = this.baseApiUrl;
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+
+    if ( entity.id ) {
+      url = this.baseApiUrl + entity.id + '/';
+      return this.http.put<User>(url, entity, {headers});
+    } else {
+      return this.http.post<User>(url, entity, {headers});
     }
+
+  }
 }
 
