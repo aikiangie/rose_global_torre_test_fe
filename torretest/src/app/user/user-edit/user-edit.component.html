@@ -1,23 +1,23 @@
 <div class="card">
     <div class="header">
-        <h1 class="title">User Detail</h1>
+        <h1 class="title">Users Detail</h1>
     </div>
     <div class="content">
-    
+
         <p *ngIf="errors">{{ errors }}</p>
-    
+
         <form *ngIf="user">
-                
+
             <div class="form-group">
                 <label>Id:</label>
-                {{user.id || 'n/a'}} 
+                {{user.id || 'n/a'}}
             </div>
-                
+
             <div class="form-group">
                 <label>Name:</label>
                 <input [(ngModel)]="user.name" name="name" class="form-control">
             </div>
-        
+
             <div class="form-group">
                 <button
                 (click)="save()"
@@ -25,6 +25,6 @@
             </div>
 
         </form>
-    
+
     </div>
 </div>

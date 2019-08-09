@@ -6,43 +6,53 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable()
 export class UserService {
+
     constructor(private http: HttpClient) {
     }
 
-  userList: User[] = [];
-  url = 'http://langelicajr.pythonanywhere.com/users';
+    userList: User[] = [];
 
-
-  findById(id: string): Observable<User> {
-        const params = { 'id': id };
-        const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http.get<User>(this.url, {params, headers});
+    findById(id: string): Observable<User> {
+        let url = 'http://langelicajr.pythonanywhere.com/users/' + id + '/';
+        let params = { };
+        let headers = new HttpHeaders()
+                            .set('Accept', 'application/json');
+        return this.http.get<User>(url, {params, headers});
     }
 
-    load(filter: UserFilter): void {
-        this.find(filter).subscribe(
+    load(): void {
+        this.find().subscribe(
             result => {
                 this.userList = result;
             },
             err => {
                 console.error('error loading', err);
             }
-        );
+        )
     }
 
-    find(filter: UserFilter): Observable<User[]> {
-        const headers = new HttpHeaders() .set('Accept', 'application/json').set('Access-Control-Allow-Origin', '*').set('Content-Type', 'application/json');
+    find(): Observable<User[]> {
+        let url = 'http://langelicajr.pythonanywhere.com/users/';
+        let headers = new HttpHeaders()
+                            .set('Accept', 'application/json');
 
-      const params = {
-            'name': filter.name,
-        };
+        let params = {};
 
-        return this.http.get<User[]>(this.url, {params, headers});
+        return this.http.get<User[]>(url, {params, headers});
     }
 
     save(entity: User): Observable<User> {
-      const headers = new HttpHeaders() .set('Accept', 'application/json');
-      return this.http.post<User>(this.url, entity, {headers});
+      let headers = new HttpHeaders()
+        .set('Accept', 'application/json');
+
+      if( entity.id ){
+        let url = 'http://langelicajr.pythonanywhere.com/users/' + entity.id + '/';
+        return this.http.put<User>(url, entity, {headers});
+      }else{
+        let url = 'http://langelicajr.pythonanywhere.com/users/';
+        return this.http.post<User>(url, entity, {headers});
+      }
+
     }
 }
 
