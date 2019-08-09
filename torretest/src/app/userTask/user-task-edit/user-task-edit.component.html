@@ -28,7 +28,7 @@
 
             <div class="form-group">
                 <label>User:</label>
-                  <select name="user" [(ngModel)]="userTask.user">
+                  <select name="user" [(ngModel)]="userTask.userId">
                     <option *ngFor="let item of userList" [value]="item.id">{{item.name}}</option>
                   </select>
 

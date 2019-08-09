@@ -37,6 +37,13 @@ export class UserService {
     return this.http.get<User[]>(url, {params, headers});
   }
 
+  delete(id: number): Observable<User> {
+    const url = this.baseApiUrl + id + '/';
+    const params = { };
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.delete<User>(url, {params, headers});
+  }
+
   save(entity: User): Observable<User> {
     let url = this.baseApiUrl;
     const headers = new HttpHeaders()

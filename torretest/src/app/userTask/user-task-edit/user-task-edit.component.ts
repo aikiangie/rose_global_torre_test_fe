@@ -41,7 +41,7 @@ export class UserTaskEditComponent implements OnInit {
                 map(p => p['id']),
                 switchMap(id => {
                     if (id === 'new') return of(new UserTask());
-                    return this.userTaskService.findById(id)
+                    return this.userTaskService.findById(id);
                 })
             )
             .subscribe(
@@ -56,7 +56,6 @@ export class UserTaskEditComponent implements OnInit {
     }
 
     save() {
-      console.log(this.userTask);
         this.userTaskService.save(this.userTask).subscribe(
             userTask => {
                 this.userTask = userTask;

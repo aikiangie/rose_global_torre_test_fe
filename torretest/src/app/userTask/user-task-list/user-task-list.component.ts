@@ -31,4 +31,8 @@ export class UserTaskListComponent {
         this.selectedUserTask = selected;
     }
 
+    delete(selected: UserTask): void {
+      this.selectedUserTask = selected;
+    }
+
 }

@@ -32,9 +32,8 @@
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
             <td>
-
-                <a [routerLink]="['../user', item.id ]">Details</a> |
-                <a (click)="select(item)">Select</a>
+                <button type="button"><a [routerLink]="['../user', item.id ]">Details</a> </button>
+                <button type="button"  (click)="delete(item)"><a >Delete</a></button>
             </td>
         </tr>
       </table>

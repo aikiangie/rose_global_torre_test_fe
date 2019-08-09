@@ -40,6 +40,13 @@ export class UserTaskService {
         return this.http.get<UserTask[]>(url, {params, headers});
     }
 
+  delete(id: number): Observable<UserTask> {
+    const url = this.baseApiUrl + id + '/';
+    const params = { };
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.delete<UserTask>(url, {params, headers});
+  }
+
     save(entity: UserTask): Observable<UserTask> {
       let url = this.baseApiUrl;
       const headers = new HttpHeaders().set('Accept', 'application/json');
