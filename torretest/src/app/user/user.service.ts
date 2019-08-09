@@ -10,7 +10,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   userList: User[] = [];
-  baseApiUrl: 'http://langelicajr.pythonanywhere.com/users/';
+  baseApiUrl = 'http://langelicajr.pythonanywhere.com/users/';
 
   findById(id: string): Observable<User> {
     const url = this.baseApiUrl + id + '/';

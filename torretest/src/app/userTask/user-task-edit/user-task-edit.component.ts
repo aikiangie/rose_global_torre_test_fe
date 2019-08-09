@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserTaskService } from '../user-task.service';
+import { UserService } from '../../user/user.service';
 import { UserTask } from '../user-task';
+
 import { map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import {User} from '../../user/user';
 
 @Component({
   selector: 'user-task-edit',
@@ -17,10 +20,20 @@ export class UserTaskEditComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private userTaskService: UserTaskService) { 
+        private userTaskService: UserTaskService,
+        private userService: UserService) {
     }
 
+  get userList(): User[] {
+    return this.userService.userList;
+  }
+  searchUsers(): void {
+    this.userService.load();
+  }
+
     ngOnInit() {
+      this.searchUsers();
+
         this
             .route
             .params
@@ -32,24 +45,25 @@ export class UserTaskEditComponent implements OnInit {
                 })
             )
             .subscribe(
-                userTask => { 
-                    this.userTask = userTask; 
-                    this.errors = ''; 
+                userTask => {
+                    this.userTask = userTask;
+                    this.errors = '';
                 },
-                err => { 
-                    this.errors = 'Error loading'; 
+                err => {
+                    this.errors = 'Error loading';
                 }
             );
     }
 
     save() {
+      console.log(this.userTask);
         this.userTaskService.save(this.userTask).subscribe(
-            userTask => { 
-                this.userTask = userTask; 
-                this.errors = 'Save was successful!'; 
+            userTask => {
+                this.userTask = userTask;
+                this.errors = 'Save was successful!';
             },
-            err => { 
-                this.errors = 'Error saving'; 
+            err => {
+                this.errors = 'Error saving';
             }
         );
     }

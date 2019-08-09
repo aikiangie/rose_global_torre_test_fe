@@ -42,8 +42,7 @@ export class UserTaskService {
 
     save(entity: UserTask): Observable<UserTask> {
       let url = this.baseApiUrl;
-      const headers = new HttpHeaders()
-        .set('Accept', 'application/json');
+      const headers = new HttpHeaders().set('Accept', 'application/json');
 
       if ( entity.id ) {
         url = this.baseApiUrl + entity.id + '/';

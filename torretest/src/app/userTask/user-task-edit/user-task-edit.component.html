@@ -3,26 +3,37 @@
         <h1 class="title">User Task Detail</h1>
     </div>
     <div class="content">
-    
+
         <p *ngIf="errors">{{ errors }}</p>
-    
+
         <form *ngIf="userTask">
-                
+
             <div class="form-group">
                 <label>Id:</label>
-                {{userTask.id || 'n/a'}} 
+                {{userTask.id || 'n/a'}}
             </div>
-                
+
             <div class="form-group">
                 <label>Name:</label>
                 <input [(ngModel)]="userTask.description" name="description" class="form-control">
             </div>
-                
+
+          <div class="form-group">
+            <label>state:</label>
+            <select name="user" [(ngModel)]="userTask.state"name="state">
+              <option value ="TO_DO" ng-selected="userTask.state == 'TO_DO'">To do</option>
+              <option value ="DONE" ng-selected="userTask.state == 'DONE'">Done</option>
+            </select>
+          </div>
+
             <div class="form-group">
                 <label>User:</label>
-                <input [(ngModel)]="userTask.user" name="user" class="form-control">
+                  <select name="user" [(ngModel)]="userTask.user">
+                    <option *ngFor="let item of userList" [value]="item.id">{{item.name}}</option>
+                  </select>
+
             </div>
-        
+
             <div class="form-group">
                 <button
                 (click)="save()"
@@ -30,6 +41,6 @@
             </div>
 
         </form>
-    
+
     </div>
 </div>
