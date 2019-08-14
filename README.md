@@ -1,27 +1,42 @@
-# DemoCli6
+# Rose Global - Frontend
+## Technical Test Full-Stack Engineering
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+At Rose Global we are creating a new MVP, this new platform must be scalable and flexible to support our continuous growth. We want to implement a micro-service architecture
 
-## Development server
+This is the project for the requerid user interface.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Requirements
 
-## Code scaffolding
+* Node version 10.16.2
+* Angular version 6.0.6
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Installation guide
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. Clone the project
+2. Execute npm install to update dependencies
+3. Execute ng serve to run the application
+3. By default, the application will be available in http://localhost:4200
 
-## Running unit tests
+![Figure 1](static/doc/images/fe_api_001.png "Figure 1")
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. There are the two available tabs: Users and userTasks. Click any of those links to test crud interfaces: list, add, edit and delete.
 
-## Running end-to-end tests
+![Figure 2](static/doc/images/fe_api_002.png "Figure 2")
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![Figure 3](static/doc/images/fe_api_003.png "Figure 3")
 
-## Further help
+### Roadmap
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### V 1.0
+* User and userTask crud interfaces implemented
+* Look and feel enchancements
+
+#### V 1.1
+* Unit tests
+
+#### V 1.2
+* Backend autentication integration
+
+#### V 1.3
+* Parametric model for task status integration
