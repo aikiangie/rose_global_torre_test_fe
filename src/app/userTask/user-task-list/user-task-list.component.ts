@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { UserTaskFilter } from '../user-task-filter';
 import { UserTaskService } from '../user-task.service';
 import { UserService } from '../../user/user.service';
@@ -39,8 +38,22 @@ export class UserTaskListComponent {
         this.selectedUserTask = selected;
     }
 
-    delete(selected: UserTask): void {
-      this.selectedUserTask = selected;
+  delete(selected: UserTask): void {
+
+    if (!confirm('Are you sure?')) {
+      return;
     }
+
+    this.selectedUserTask = selected;
+    this.userTaskService.delete(selected.id).subscribe(
+      user => {
+        this.search();
+      },
+      err => {
+        this.search();
+      }
+    );
+
+  }
 
 }

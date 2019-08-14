@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { UserService } from '../user.service';
 import { User } from '../user';
-import {UserTask} from '../../userTask/user-task';
 
 @Component({
     selector: 'user',
@@ -29,7 +27,7 @@ export class UserListComponent {
 
   delete(selected: User): void {
 
-      if(!confirm('Are you sure?')){
+      if (!confirm('Are you sure?')) {
         return;
       }
 

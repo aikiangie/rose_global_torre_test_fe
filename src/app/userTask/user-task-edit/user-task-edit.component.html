@@ -5,7 +5,10 @@
     Edit Task - Id {{userTask.id}}
   </h2>
 
-  <a (click)="save()">
+  <a routerLink="../../user-task"  title="Back to list">
+    <i class="material-icons md-36">list</i>
+  </a>
+  <a (click)="save()" title="Save changes">
     <i class="material-icons md-36">save</i>
   </a>
 

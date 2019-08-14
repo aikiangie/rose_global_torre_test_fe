@@ -5,8 +5,11 @@
         Edit User - Id {{user.id}}
       </h2>
 
-      <a (click)="save()">
-        <i class="material-icons md-36">save</i>
+      <a routerLink="../../user"  title="Back to list">
+        <i class="material-icons md-36">list</i>
+      </a>
+      <a (click)="save()" title="Save changes">
+          <i class="material-icons md-36">save</i>
       </a>
 
     </div>

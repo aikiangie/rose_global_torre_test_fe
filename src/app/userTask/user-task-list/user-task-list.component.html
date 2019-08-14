@@ -2,7 +2,7 @@
 
   <h2 class="title">User Tasks</h2>
 
-  <a [routerLink]="['../user-task','new']">
+  <a [routerLink]="['../user-task','new']" title="New task">
     <i class="material-icons md-36">add</i>
   </a>
 
@@ -34,7 +34,7 @@
            <td class="text-right">
 
               <button type="button" class="btn btn-primary"><a [routerLink]="['../user-task', item.id ]">Edit</a> </button>
-                <!--a (click)="select(item)">Select</a-->
+              <button type="button"  class="btn btn-default" (click)="delete(item)"><a >Delete</a></button>
             </td>
         </tr>
       </table>
