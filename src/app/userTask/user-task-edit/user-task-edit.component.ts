@@ -47,6 +47,7 @@ export class UserTaskEditComponent implements OnInit {
             .subscribe(
                 userTask => {
                     this.userTask = userTask;
+                  this.userTask.userId = userTask.user.id;
                     this.errors = '';
                 },
                 err => {
@@ -59,6 +60,7 @@ export class UserTaskEditComponent implements OnInit {
         this.userTaskService.save(this.userTask).subscribe(
             userTask => {
                 this.userTask = userTask;
+              this.userTask.userId = userTask.user.id;
                 this.errors = 'Save was successful!';
             },
             err => {

@@ -1,3 +1,3 @@
 export class UserTaskFilter {
-    description: string = '';
+    user: number = null;
 }

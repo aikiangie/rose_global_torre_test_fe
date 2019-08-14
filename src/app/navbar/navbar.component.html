@@ -1,45 +1,23 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" (click)="sidebarToggle()">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar bar1"></span>
-        <span class="icon-bar bar2"></span>
-        <span class="icon-bar bar3"></span>
-      </button>
-      <a class="navbar-brand" href="#"> Technical Test Full-Stack Engineering for Torre.</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="ti-panel"></i>
-            <p>Stats</p>
-          </a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="ti-bell"></i>
-            <p class="notification">5</p>
-            <p>Notifications</p>
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Notification 1</a></li>
-            <li><a href="#">Notification 2</a></li>
-            <li><a href="#">Notification 3</a></li>
-            <li><a href="#">Notification 4</a></li>
-            <li><a href="#">Another notification</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
-            <i class="ti-settings"></i>
-            <p>Settings</p>
-          </a>
-        </li>
-      </ul>
-
-    </div>
+<div class="row nav-bar">
+  <div class="col-xs-4">
+    <a routerLink="home" routerLinkActive="active">
+      <i class="material-icons md-48">feedback</i>
+      <p>Welcome</p>
+    </a>
   </div>
-</nav>
+
+  <div class="col-xs-4">
+    <a routerLink="user" routerLinkActive="active">
+      <i class="material-icons md-48">face</i>
+      <p>Users</p>
+    </a>
+  </div>
+
+  <div class="col-xs-4">
+    <a routerLink="user-task" routerLinkActive="active">
+      <i class="material-icons md-48">assignment</i>
+      <p>User Tasks</p>
+    </a>
+  </div>
+
+</div>

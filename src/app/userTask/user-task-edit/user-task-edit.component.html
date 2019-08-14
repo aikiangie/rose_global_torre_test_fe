@@ -1,17 +1,21 @@
-<div class="card">
-    <div class="header">
-        <h1 class="title">User Task Detail</h1>
-    </div>
-    <div class="content">
+<div class="action-bar">
+  <h2 class="title" *ngIf="!userTask.id">New Task</h2>
 
-        <p *ngIf="errors">{{ errors }}</p>
+  <h2 class="title" *ngIf="userTask.id">
+    Edit Task - Id {{userTask.id}}
+  </h2>
+
+  <a (click)="save()">
+    <i class="material-icons md-36">save</i>
+  </a>
+
+</div>
+
+    <div class="form-content">
+
+
 
         <form *ngIf="userTask">
-
-            <div class="form-group">
-                <label>Id:</label>
-                {{userTask.id || 'n/a'}}
-            </div>
 
             <div class="form-group">
                 <label>Name:</label>
@@ -20,7 +24,7 @@
 
           <div class="form-group">
             <label>state:</label>
-            <select name="user" [(ngModel)]="userTask.state"name="state">
+            <select name="state" [(ngModel)]="userTask.state"name="state"  class="form-control">
               <option value ="TO_DO" ng-selected="userTask.state == 'TO_DO'">To do</option>
               <option value ="DONE" ng-selected="userTask.state == 'DONE'">Done</option>
             </select>
@@ -28,19 +32,16 @@
 
             <div class="form-group">
                 <label>User:</label>
-                  <select name="user" [(ngModel)]="userTask.userId">
+                  <select name="user" [(ngModel)]="userTask.userId"  class="form-control">
                     <option *ngFor="let item of userList" [value]="item.id">{{item.name}}</option>
                   </select>
 
             </div>
 
-            <div class="form-group">
-                <button
-                (click)="save()"
-                class="btn btn-default">Save</button>
-            </div>
-
         </form>
 
+
+      <p class="alert" *ngIf="errors">{{ errors }}</p>
+
     </div>
-</div>
+

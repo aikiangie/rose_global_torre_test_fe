@@ -5,4 +5,5 @@ export class UserTask {
     description: string;
     state: string;
     userId: UserModule;
+    user: any;
 }

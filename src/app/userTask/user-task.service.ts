@@ -32,11 +32,14 @@ export class UserTaskService {
     }
 
     find(filter: UserTaskFilter): Observable<UserTask[]> {
-        const url = this.baseApiUrl;
+        let url = this.baseApiUrl;
+        if ( filter.user != null && !isNaN(filter.user) ) {
+          url = url + '?userId=' + filter.user;
+        }
+
+        console.log(filter.user);
         const headers = new HttpHeaders().set('Accept', 'application/json');
-        const params = {
-            'description': filter.description,
-        };
+        const params = {};
         return this.http.get<UserTask[]>(url, {params, headers});
     }
 

@@ -1,31 +1,18 @@
-<div class="card">
+<div class="action-bar">
 
-      <div class="header">
-        <h2 class="title">User Task</h2>
-      </div>
-      <div class="content">
+  <h2 class="title">User Tasks</h2>
 
-        <form #f="ngForm">
+  <a [routerLink]="['../user-task','new']">
+    <i class="material-icons md-36">add</i>
+  </a>
 
-          <div class="form-group">
-            <label>Name:</label>
-            <input [(ngModel)]="filter.description" name="description" class="form-control">
-          </div>
+  <select name="user" [(ngModel)]="filter.user" (change)="search()" class="form-control">
+    <option [value]="null">All Users</option>
+    <option *ngFor="let item of userList" [value]="item.id">{{item.name}}</option>
+  </select>
 
-          <div class="form-group">
-            <button (click)="search()" [disabled]="!f?.valid" class="btn btn-default">
-              Search
-            </button>
-            <a [routerLink]="['../user-task','new']" class="btn btn-default">
-                New
-            </a>
+</div>
 
-          </div>
-
-        </form>
-
-      </div>
-    </div>
 
     <div class="card" *ngIf="userTaskList.length > 0">
 
@@ -36,6 +23,7 @@
             <th>Name</th>
             <th>State</th>
             <th>User</th>
+          <th></th>
         </tr>
         </thead>
         <tr *ngFor="let item of userTaskList" [class.active]="item === selectedUserTask">
@@ -43,10 +31,10 @@
             <td>{{item.description}}</td>
             <td>{{item.state == 'TO_DO' ? 'To do': 'Done' }}</td>
             <td>{{item.user.name}}</td>
-            <td>
+           <td class="text-right">
 
-                <a [routerLink]="['../user-task', item.id ]">Details</a> |
-                <a (click)="select(item)">Select</a>
+              <button type="button" class="btn btn-primary"><a [routerLink]="['../user-task', item.id ]">Edit</a> </button>
+                <!--a (click)="select(item)">Select</a-->
             </td>
         </tr>
       </table>

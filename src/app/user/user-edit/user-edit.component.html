@@ -1,30 +1,30 @@
-<div class="card">
-    <div class="header">
-        <h1 class="title">Users Detail</h1>
-    </div>
-    <div class="content">
+    <div class="action-bar">
+      <h2 class="title" *ngIf="!user.id">New User</h2>
 
-        <p *ngIf="errors">{{ errors }}</p>
+      <h2 class="title" *ngIf="user.id">
+        Edit User - Id {{user.id}}
+      </h2>
+
+      <a (click)="save()">
+        <i class="material-icons md-36">save</i>
+      </a>
+
+    </div>
+
+    <div class="form-content">
+
 
         <form *ngIf="user">
 
-            <div class="form-group">
-                <label>Id:</label>
-                {{user.id || 'n/a'}}
-            </div>
 
             <div class="form-group">
                 <label>Name:</label>
                 <input [(ngModel)]="user.name" name="name" class="form-control">
             </div>
 
-            <div class="form-group">
-                <button
-                (click)="save()"
-                class="btn btn-default">Save</button>
-            </div>
 
         </form>
 
+      <p class="alert" *ngIf="errors">{{ errors }}</p>
+
     </div>
-</div>
