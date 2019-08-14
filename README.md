@@ -38,7 +38,7 @@ This is the project for the requerid user interface.
 * Unit tests
 
 #### V 1.2
-* Backend autentication integration
+* Backend authentication integration
 
 #### V 1.3
 * Parametric model for task status integration
