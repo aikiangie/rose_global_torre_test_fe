@@ -1,7 +1,9 @@
 # Rose Global - Frontend
 ## Technical Test Full-Stack Engineering
 
-At Rose Global we are creating a new MVP, this new platform must be scalable and flexible to support our continuous growth. We want to implement a micro-service architecture
+At Rose Global we are creating a new MVP. This new platform must be scalable and flexible to support our continuous growth. We want to implement a micro-service architecture:
+
+![Figure 0](static/doc/images/arch.png "Figure 0")
 
 This is the project for the requerid user interface.
 
